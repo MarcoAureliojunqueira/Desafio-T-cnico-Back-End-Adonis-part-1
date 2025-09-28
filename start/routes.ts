@@ -9,3 +9,9 @@ router.put('/users/:id', [UsersController, 'update'])
 router.delete('/users/:id', [UsersController, 'destroy'])
 
 // gateways Routes
+
+router.get('/gateways', [UsersController, 'index'])
+router.post('/gateways', [UsersController, 'store'])
+router.get('/gateways/:id', [UsersController, 'show'])
+router.put('/gateways/:id', [UsersController, 'update'])
+router.delete('/gateways/:id', [UsersController, 'destroy'])
