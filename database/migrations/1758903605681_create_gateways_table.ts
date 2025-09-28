@@ -14,7 +14,7 @@ export default class extends BaseSchema {
       table.timestamp('updated_at', { useTz: true })
     })
   }
-
+  
   async down() {
     this.schema.dropTable(this.tableName)
   }
