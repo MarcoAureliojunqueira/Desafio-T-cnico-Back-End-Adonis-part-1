@@ -1,7 +1,7 @@
 import router from '@adonisjs/core/services/router'
 import UsersController from '#controllers/users_controller'
-
- import GatewaysController from'#controllers/gateways_controller'
+import GatewaysController from'#controllers/gateways_controller'
+import clientsController from '#controllers/ClientsController'
 
 router.resource('gateways', GatewaysController)
 
@@ -20,3 +20,10 @@ router.post('/gateways', [GatewaysController, 'store'])
 router.get('/gateways/:id', [GatewaysController, 'show'])
 router.put('/gateways/:id', [GatewaysController, 'update'])
 router.delete('/gateways/:id', [GatewaysController, 'destroy'])
+
+// Clients Routes
+router.get('/clients', [clientsController, 'index'])
+router.post('/clients', [clientsController, 'store'])
+router.get('/clients/:id', [clientsController, 'show'])
+router.put('/clients/:id', [clientsController, 'update'])
+router.delete('/clients/:id', [clientsController, 'destroy'])

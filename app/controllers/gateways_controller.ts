@@ -1,5 +1,5 @@
 import type { HttpContext } from '@adonisjs/core/http'
-import GatewayService from '../Services/gateway_service.js'
+import GatewayService from '../services/gateway_service.js'
 
 export default class GatewaysController {
   public async index({ response }: HttpContext) {
