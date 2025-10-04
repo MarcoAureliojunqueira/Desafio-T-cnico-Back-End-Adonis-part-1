@@ -3,8 +3,9 @@ import UsersController from '#controllers/users_controller'
 import GatewaysController from'#controllers/gateways_controller'
 import clientsController from '#controllers/ClientsController'
 import ProductsController from '#controllers/ProductsController'
+import AuthController from '#controllers/auth_controller'
 
-router.resource('gateways', GatewaysController)
+
 
 
 // Users Routes
@@ -35,3 +36,9 @@ router.post('/products', [ProductsController, 'store'])
 router.get('/products/:id', [ProductsController, 'show'])
 router.put('/products/:id', [ProductsController, 'update'])
 router.delete('/products/:id', [ProductsController, 'destroy'])
+
+// Authentication Routes
+
+router.get('/login', [AuthController, 'showLogin'])
+router.post('/login', [AuthController, 'login'])
+router.post('/logout', [AuthController, 'logout'])
