@@ -3,7 +3,7 @@ import UsersController from '#controllers/users_controller'
 import GatewaysController from'#controllers/gateways_controller'
 import clientsController from '#controllers/ClientsController'
 import ProductsController from '#controllers/ProductsController'
-import AuthController from '#controllers/auth_controller'
+//import AuthController from '#controllers/auth_controller'
 
 
 
@@ -39,6 +39,6 @@ router.delete('/products/:id', [ProductsController, 'destroy'])
 
 // Authentication Routes
 
-router.get('/login', [AuthController, 'showLogin'])
-router.post('/login', [AuthController, 'login'])
-router.post('/logout', [AuthController, 'logout'])
+//router.get('/login', [AuthController, 'showLogin'])
+//router.post('/login', [AuthController, 'login'])
+//router.post('/logout', [AuthController, 'logout'])

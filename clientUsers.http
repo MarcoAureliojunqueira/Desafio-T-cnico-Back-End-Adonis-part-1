@@ -1,0 +1,40 @@
+
+@baseUrl = http://localhost:3333
+@json = Content-Type: application/json
+
+###
+# Listar todos os usuários
+GET {{baseUrl}}/users
+{{json}}
+
+###
+# Criar um novo usuário
+POST {{baseUrl}}/users
+{{json}}
+
+{
+  "username": "Marco test",
+  "email": "marcotest@example.com",
+  "password": "123456"
+}
+
+###
+# Buscar um usuário pelo ID
+GET {{baseUrl}}/users/1
+{{json}}
+
+###
+# Atualizar um usuário pelo ID
+PUT {{baseUrl}}/users/1
+{{json}}
+
+{
+  "name": "Marco Atualizado",
+  "email": "marco.new@example.com"
+}
+
+###
+# Deletar um usuário pelo ID
+DELETE {{baseUrl}}/users/1
+{{json}}
+
