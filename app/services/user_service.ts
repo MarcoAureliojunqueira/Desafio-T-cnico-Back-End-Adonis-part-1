@@ -7,7 +7,7 @@ export default class UserService {
   }
 
   // Criar um usuário
-  public async create(data: { username: string; email: string; password: string }) {
+  public async create(data: { fullName: string; email: string; password: string }) {
     // Aqui você poderia adicionar lógica extra: hash de senha, validações adicionais, envio de e-mail etc.
     const user = await User.create(data)
     return user
@@ -19,7 +19,7 @@ export default class UserService {
   }
 
   // Atualizar usuário
-  public async update(id: number, data: { username?: string; email?: string; password?: string }) {
+  public async update(id: number, data: { fullName?: string; email?: string; password?: string }) {
     const user = await User.findOrFail(id)
     user.merge(data)
     await user.save()

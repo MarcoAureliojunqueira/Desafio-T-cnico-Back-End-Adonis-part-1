@@ -10,7 +10,7 @@ export default class UsersController {
   }
 
   public async store({ request }: HttpContext) {
-    const data = request.only(['username', 'email', 'password'])
+    const data = request.only(['fullName', 'email', 'password'])
     return await this.userService.create(data)
   }
 
@@ -19,7 +19,7 @@ export default class UsersController {
   }
 
   public async update({ params, request }: HttpContext) {
-    const data = request.only(['username', 'email', 'password'])
+    const data = request.only(['fullName', 'email', 'password'])
     return await this.userService.update(params.id, data)
   }
 
