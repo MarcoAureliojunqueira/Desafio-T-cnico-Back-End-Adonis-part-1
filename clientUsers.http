@@ -12,11 +12,15 @@ GET {{baseUrl}}/users
 POST {{baseUrl}}/users
 {{json}}
 
+POST {{baseUrl}}/users
+{{json}}
+
 {
   "fullName": "Marco test",
   "email": "marcotest@example.com",
   "password": "123456"
 }
+
 
 ###
 # Buscar um usuário pelo ID
