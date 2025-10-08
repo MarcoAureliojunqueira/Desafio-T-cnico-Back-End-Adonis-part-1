@@ -2,6 +2,7 @@ import type { HttpContext } from '@adonisjs/core/http'
 import UserService from '#services/user_service'
 
 
+
 export default class UsersController {
   private userService = new UserService()
 
@@ -11,6 +12,9 @@ export default class UsersController {
 
   public async store({ request }: HttpContext) {
   const data = request.only(['full_name', 'email', 'password'])
+  console.log('Contole log data no store')
+  console.log(request.all())
+  console.log(data)
   return await this.userService.create(data)
 }
 

@@ -9,7 +9,10 @@ export default class UserService {
   // Criar um usuário
   public async create(data: { full_name: string; email: string; password: string }) {
     // Aqui você poderia adicionar lógica extra: hash de senha, validações adicionais, envio de e-mail etc.
+  console.log('Service log data no store')
+  console.log(data)
     const user = await User.create(data)
+
     return user
   }
 

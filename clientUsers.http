@@ -9,15 +9,13 @@ GET {{baseUrl}}/users
 
 ###
 # Criar um novo usuário
-POST {{baseUrl}}/users
-{{json}}
 
 POST {{baseUrl}}/users
 {{json}}
 
 {
-  "fullName": "Marco test",
-  "email": "marcotest@example.com",
+  "full_name": "Marco test",
+  "email": "marcotest2@example.com",
   "password": "123456"
 }
 
