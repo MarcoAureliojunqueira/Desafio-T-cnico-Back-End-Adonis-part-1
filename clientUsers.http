@@ -15,7 +15,7 @@ POST {{baseUrl}}/users
 
 {
   "full_name": "Marco test",
-  "email": "marcotest2@example.com",
+  "email": "marcotest3@example.com",
   "password": "123456"
 }
 
@@ -27,7 +27,7 @@ GET {{baseUrl}}/users/1
 
 ###
 # Atualizar um usuário pelo ID
-PUT {{baseUrl}}/users/1
+PUT {{baseUrl}}/users/4
 {{json}}
 
 {
@@ -37,6 +37,6 @@ PUT {{baseUrl}}/users/1
 
 ###
 # Deletar um usuário pelo ID
-DELETE {{baseUrl}}/users/1
+DELETE {{baseUrl}}/users/4
 {{json}}
 
