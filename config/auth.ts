@@ -1,14 +1,22 @@
 import { defineConfig } from '@adonisjs/auth'
 
-export default defineConfig({
-  default: 'web', // ou 'guard' dependendo da versão
+const authConfig = defineConfig({
+  default: 'jwt',
+
   guards: {
-    web: {
-      driver: 'session',
+    jwt: {
+      driver: 'oat', // "opaque access token" (recomendado no Adonis 6)
+      tokenProvider: {
+        type: 'api',
+        driver: 'database',
+        table: 'api_tokens',
+      },
       provider: {
-        driver: 'lucid',
+        type: 'lucid',
         model: () => import('#models/user'),
       },
     },
   },
 })
+
+export default authConfig

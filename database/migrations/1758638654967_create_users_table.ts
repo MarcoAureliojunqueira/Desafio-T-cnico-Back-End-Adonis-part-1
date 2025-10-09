@@ -1,3 +1,5 @@
+import User from '#models/user'
+import { DbAccessTokensProvider } from '@adonisjs/auth/access_tokens'
 import { BaseSchema } from '@adonisjs/lucid/schema'
 
 export default class extends BaseSchema {
@@ -15,6 +17,7 @@ export default class extends BaseSchema {
     })
   }
 
+  static accessTokens = DbAccessTokensProvider.forModel(User)
   async down() {
     this.schema.dropTable(this.tableName)
   }
