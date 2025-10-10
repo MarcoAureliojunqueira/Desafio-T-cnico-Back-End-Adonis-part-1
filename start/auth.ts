@@ -7,4 +7,4 @@ router.group(() => {
   router.post('/login', [AuthController, 'login'])
   router.post('/logout', [AuthController, 'logout']).middleware(['auth'])
   router.get('/me', [AuthController, 'me']).middleware(['auth'])
-}).prefix('/auth')
+}).prefix('/auth') 
