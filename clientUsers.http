@@ -14,8 +14,8 @@ POST {{baseUrl}}/users
 {{json}}
 
 {
-  "full_name": "Marco test",
-  "email": "marcotest3@example.com",
+  "full_name": "Marco oi",
+  "email": "marcotest5@example.com",
   "password": "123456"
 }
 
