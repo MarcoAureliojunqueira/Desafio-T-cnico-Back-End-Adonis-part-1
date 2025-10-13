@@ -22,6 +22,7 @@ export default class AuthController {
         fullName: user.fullName,
         email: user.email,
         role: user.role,
+        
       },
     })
   }
