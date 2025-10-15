@@ -1,17 +1,20 @@
    import type { HttpContext } from '@adonisjs/core/http'
-import User from '../models/User'
+import User from '../models/user.js'
 import hash from '@adonisjs/core/services/hash'
+import { log } from 'node:console';
 
 export default class AuthController {
   async login({ request, auth, response }: HttpContext) {
     const { email, password } = request.only(['email', 'password'])
-
+console.log('Erro ---->',email);
+ console.log(request.all())
     const user = await User.findBy('email', email)
-
+  
     if (!user || !(await hash.verify(user.password, password))) {
       return response.unauthorized({ message: 'Credenciais inválidas' })
     }
-
+ console.log('erro ---->', auth);
+ 
     const token = await auth.use('api').generate(user)
 
     return response.ok({
@@ -21,7 +24,7 @@ export default class AuthController {
         id: user.id,
         fullName: user.fullName,
         email: user.email,
-        role: user.role,
+       
         
       },
     })

@@ -3,6 +3,14 @@ import UsersController from '#controllers/users_controller'
 import GatewaysController from'#controllers/gateways_controller'
 import clientsController from '#controllers/ClientsController'
 import ProductsController from '#controllers/ProductsController'
+import AuthController from '#controllers/auth_controller'
+
+
+
+// rota de teste opcional
+router.get('/', async () => {
+  return { message: 'API BeMobile rodando 🚀' }
+})
 
 
 // Users Routes
@@ -33,3 +41,12 @@ router.post('/products', [ProductsController, 'store'])
 router.get('/products/:id', [ProductsController, 'show'])
 router.put('/products/:id', [ProductsController, 'update'])
 router.delete('/products/:id', [ProductsController, 'destroy'])
+
+
+// Prefixo /auth
+router.group(() => {
+  router.post('/register', [AuthController, 'register'])
+  router.post('/login', [AuthController, 'login'])
+  router.post('/logout', [AuthController, 'logout']).middleware(['auth'])
+  router.get('/me', [AuthController, 'me']).middleware(['auth'])
+}).prefix('/auth') 
