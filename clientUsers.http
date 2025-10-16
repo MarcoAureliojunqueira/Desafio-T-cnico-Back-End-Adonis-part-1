@@ -15,7 +15,7 @@ POST {{baseUrl}}/users
 
 {
   "full_name": "Marco oi",
-  "email": "marcotest5@example.com",
+  "email": "marcotest6@example.com",
   "password": "123456"
 }
 
@@ -37,6 +37,6 @@ PUT {{baseUrl}}/users/4
 
 ###
 # Deletar um usuário pelo ID
-DELETE {{baseUrl}}/users/4
+DELETE {{baseUrl}}/users/13
 {{json}}
 

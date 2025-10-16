@@ -14,7 +14,8 @@ export default class AuthController {
       return response.unauthorized({ message: 'Credenciais inválidas' })
     }
  console.log('erro ---->', auth);
- 
+
+
     const token = await auth.use('api').generate(user)
 
     return response.ok({
