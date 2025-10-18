@@ -10,7 +10,7 @@ POST http://localhost:3333/auth/register
   "password": "123456",
   "role": "ADMIN"
 }
-
+  
 ###
 POST {{baseUrl}}/auth/login
 {{json}}
