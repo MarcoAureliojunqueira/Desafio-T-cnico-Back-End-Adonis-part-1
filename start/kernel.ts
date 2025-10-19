@@ -12,7 +12,7 @@ server.use([
 
 router.use([
   () => import('@adonisjs/core/bodyparser_middleware'),
-])
+])   
 
 // ✅ Aqui vem a parte essencial:
 export const middleware = {
