@@ -15,7 +15,7 @@ router.use([
 ])   
 
 // ✅ Aqui vem a parte essencial:
-export const middleware = {
+export const middleware = {    
   named: {
     auth: () => import('@adonisjs/auth/middleware'), // ← este é o caminho certo
   },
