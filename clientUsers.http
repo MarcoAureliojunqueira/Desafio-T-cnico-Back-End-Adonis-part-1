@@ -37,6 +37,6 @@ PUT {{baseUrl}}/users/4
 
 ###
 # Deletar um usuário pelo ID
-DELETE {{baseUrl}}/users/13
+DELETE {{baseUrl}}/users/2
 {{json}}
 
