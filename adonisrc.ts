@@ -83,4 +83,4 @@ export default defineConfig({
     ],
     forceExit: false,
   },
-})
+} as any)
