@@ -1,18 +1,17 @@
 import { defineConfig } from '@adonisjs/auth'
-import User from '#models/user'
 
-const authConfig = defineConfig({
-  default: 'api',
+export default defineConfig({
+  default: 'api', // 👈 nosso guard padrão
   guards: {
     api: {
-      driver: 'oat', // ou 'access_tokens', dependendo do setup
-      model: () => User,
-      tokenProvider: {
-        type: 'api',
-        driver: 'database',
+      driver: 'oat', // “opaque access token”
+      provider: {
+        driver: 'lucid',
+        model: () => import('#models/user'),
       },
-    },
+      tokens: {
+        table: 'api_tokens',
+      },
+    } as any,
   },
 })
-
-export default authConfig

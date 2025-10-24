@@ -19,4 +19,7 @@ export const middleware = {
     // @ts-ignore: module has no type declarations in this project
     auth: () => import('@adonisjs/auth/middleware'), // ← este é o caminho certo
   },
+  
 }   
+
+
