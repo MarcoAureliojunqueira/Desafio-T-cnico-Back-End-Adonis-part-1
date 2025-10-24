@@ -1,4 +1,3 @@
-import { middleware } from '@adonisjs/core/http'
 import router from '@adonisjs/core/services/router'
 import server from '@adonisjs/core/services/server'
 
@@ -17,6 +16,7 @@ router.use([
 // ✅ Aqui vem a parte essencial:
 export const middleware = {    
   named: {
+    // @ts-ignore: module has no type declarations in this project
     auth: () => import('@adonisjs/auth/middleware'), // ← este é o caminho certo
   },
 }   
