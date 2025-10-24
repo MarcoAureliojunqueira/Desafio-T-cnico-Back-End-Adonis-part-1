@@ -2,7 +2,7 @@ import { DateTime } from 'luxon'
 import hash from '@adonisjs/core/services/hash'
 import { compose } from '@adonisjs/core/helpers'
 import { BaseModel, column, beforeSave } from '@adonisjs/lucid/orm'
-import { withAuthFinder, UserWithAuthFinder } from '@adonisjs/auth/mixins/lucid'
+import { withAuthFinder } from '@adonisjs/auth/mixins/lucid'
 import { DbAccessTokensProvider } from '@adonisjs/auth/access_tokens'
 
 // 🔑 Mixin de autenticação
@@ -11,7 +11,7 @@ const AuthFinder = withAuthFinder(() => hash.use('scrypt'), {
   passwordColumnName: 'password',
 })
 
-export default class User extends compose(BaseModel, AuthFinder) implements UserWithAuthFinder {
+export default class User extends compose(BaseModel, AuthFinder) {
   @column({ isPrimary: true })
   declare id: number
 
@@ -32,8 +32,8 @@ export default class User extends compose(BaseModel, AuthFinder) implements User
 
   // 🔐 Antes de salvar, gera o hash da senha
   @beforeSave()
-  static async hashPassword<T extends User>(this: T, user: InstanceType<T>) {
-    if (user.$dirty.password) {
+  static async hashPassword(this: any, user: any) {
+    if (user.$dirty && user.$dirty.password) {
       user.password = await hash.make(user.password)
     }
   }
