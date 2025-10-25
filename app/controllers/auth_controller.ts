@@ -10,7 +10,7 @@ export default class AuthController {
  console.log(request.all())
     const user = await User.findBy('email', email)
   
-    if (!user || !(await hash.verify(user.password, password))) {
+    if (!user || !(await hash.verify(password, user.password))) {
       return response.unauthorized({ message: 'Credenciais inválidas' })
     }
  console.log('erro ---->', auth);
