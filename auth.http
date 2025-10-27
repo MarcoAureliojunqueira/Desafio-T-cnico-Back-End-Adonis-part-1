@@ -16,6 +16,6 @@ POST {{baseUrl}}/auth/login
 {{json}}
 
 {
-  "email": "marco@78email.com",
+  "email": "marco@example.com",
   "password": "123456"
 }
