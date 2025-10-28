@@ -30,13 +30,15 @@ export default class User extends compose(BaseModel, AuthFinder) {
   @column.dateTime({ autoCreate: true, autoUpdate: true })
   declare updatedAt: DateTime | null
 
-  // 🔐 Antes de salvar, gera o hash da senha
-  @beforeSave()
-  static async hashPassword(this: any, user: any) {
-    if (user.$dirty && user.$dirty.password) {
-      user.password = await hash.make(user.password)
-    }
+// 🔐 Antes de salvar, gera o hash da senha
+@beforeSave()
+static async hashPassword(user: any) {
+  if (user.$dirty.password) {
+    user.password = await hash.make(user.password)
   }
+}
+
+
 
   // 🪪 Tokens de acesso
   static accessTokens = DbAccessTokensProvider.forModel(User)

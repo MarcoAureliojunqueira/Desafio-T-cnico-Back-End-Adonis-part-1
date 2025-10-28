@@ -6,18 +6,19 @@ export default class AuthController {
   async login({ request, auth, response }: HttpContext) {
     const { email, password } = request.only(['email', 'password'])
 
-    console.log(request.all())
+    console.log('Dados recebidos:', request.all())
 
     const user = await User.findBy('email', email)
+    console.log('Usuário encontrado:', user)
 
-    if (!user || !(await hash.verify(user.password, password))) {
+    if (!user || !(await hash.verify(password, user.password))) {
+      console.log('Falha na verificação da senha')
       return response.unauthorized({ message: 'Credenciais inválidas' })
     }
 
     console.log('Usuário autenticado:', user.email)
 
     const token = await auth.use('api').generate(user)
-
     console.log('Token gerado:', token)
 
     return response.ok({
