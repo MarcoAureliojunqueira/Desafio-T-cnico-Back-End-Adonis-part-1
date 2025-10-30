@@ -15,7 +15,7 @@ POST http://localhost:3333/auth/register
 POST {{baseUrl}}/auth/login
 {{json}}
  
-{
+{     
   "email": "marco@example.com",
   "password": "123456"
 }
