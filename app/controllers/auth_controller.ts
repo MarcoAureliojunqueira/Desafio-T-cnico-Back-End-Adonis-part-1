@@ -5,7 +5,7 @@ import hash from '@adonisjs/core/services/hash'
 export default class AuthController {
   async login({ request, auth, response }: HttpContext) {
     const { email, password } = request.only(['email', 'password'])
-
+  
     console.log('Dados recebidos:', request.all())
 
     const user = await User.findBy('email', email)
