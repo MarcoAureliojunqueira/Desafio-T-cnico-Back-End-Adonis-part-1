@@ -3,7 +3,7 @@ import User from '../models/user.js'
 import hash from '@adonisjs/core/services/hash'
 
 export default class AuthController {
-  async login({ request, auth, response }: HttpContext) {
+  async login({ request, response }: HttpContext) {
     const { email, password } = request.only(['email', 'password'])
   
     console.log('Dados recebidos:', request.all())
@@ -18,12 +18,12 @@ export default class AuthController {
 
     console.log('Usuário autenticado:', user.email)
 
-    const token = await auth.use('api').generate(user)
-    console.log('Token gerado:', token)
+    //const token = await auth.use('api').generate(user)
+    //console.log('Token gerado:', token)
 
     return response.ok({
       message: 'Login realizado com sucesso',
-      token,
+      //token,
       user: {
         id: user.id,
         fullName: user.fullName,
